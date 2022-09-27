@@ -23,7 +23,7 @@ class RedmineOauthController < AccountController
       info = JSON.parse(result.body)
       if info && info["verified_email"]
         if allowed_domain_for?(info["email"])
-          try_to_login info
+          try_to_login(info)
         else
           flash[:error] = l(:notice_domain_not_allowed, :domain => parse_email(info["email"])[:domain])
           redirect_to signin_path
@@ -35,7 +35,7 @@ class RedmineOauthController < AccountController
     end
   end
 
-  def try_to_login info
+  def try_to_login(info)
    params[:back_url] = session[:back_url]
    session.delete(:back_url)
    user = User.joins(:email_addresses).where(:email_addresses => { :address => info["email"] }).first_or_create
