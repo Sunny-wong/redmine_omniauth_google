@@ -19,7 +19,7 @@ class RedmineOauthController < AccountController
       redirect_to signin_path
     else
       token = oauth_client.auth_code.get_token(params[:code], :redirect_uri => oauth_google_callback_url)
-      result = token.get('https://www.googleapis.com/oauth2/v1/userinfo')
+      result = token.get('https://www.googleapis.com/oauth2/v3/userinfo')
       info = JSON.parse(result.body)
       if info && info["verified_email"]
         if allowed_domain_for?(info["email"])
@@ -84,9 +84,9 @@ class RedmineOauthController < AccountController
 
   def oauth_client
     @client ||= OAuth2::Client.new(settings[:client_id], settings[:client_secret],
-      :site => 'https://accounts.google.com',
-      :authorize_url => '/o/oauth2/auth',
-      :token_url => '/o/oauth2/token')
+      :site => 'https://oauth2.googleapis.com',
+      :authorize_url => 'https://accounts.google.com/o/oauth2/auth',
+      :token_url => '/token')
   end
 
   def settings
