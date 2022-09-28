@@ -3,11 +3,11 @@ require File.dirname(__FILE__) + '/lib/redmine_omniauth_google/hooks'
 
 Redmine::Plugin.register :redmine_omniauth_google do
   name 'Redmine Omniauth Google plugin'
-  author 'Dmitry Kovalenok'
+  author 'Neo Wang'
   description 'This is a plugin for Redmine registration through google'
   version '0.0.1'
-  url 'https://github.com/twinslash/redmine_omniauth_google'
-  author_url 'http://twinslash.com'
+  url 'https://github.com/Sunny-wong/redmine_omniauth_google'
+  author_url ''
 
   settings :default => {
     :client_id => "",
