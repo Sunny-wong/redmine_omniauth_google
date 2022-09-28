@@ -26,3 +26,33 @@
   background-image: -webkit-linear-gradient(bottom, #ddd, white);
   /* font-size: 12px; */
 }
+
+.google-login {
+  margin: 0 auto;
+  width: 220px;
+  height: 300px;
+}
+
+.google-login a {
+  display: inline-block;
+  padding: 8px 0px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all .2s ease-in-out;
+  color: #fff;
+  font-size: 16px;
+  background: rgb(116,206,216);
+  box-shadow: 0 6px 7px rgb(0 0 0 / 50%);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.google-login a img {
+  width: 19px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.google-login a span {
+  vertical-align: middle;
+}
